@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自动回复接口工具</title>
+    <!-- stylesheets -->
+    <script src="../mode/js/jquery-3.2.1.min.js"></script>
+    <!--<link href="../css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../mode/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200i,300,300i,400,600,700,700i,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="../mode/css/swiper.css" rel="stylesheet">
+
+    <link href="css/home.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-transparent navbar-fixed-top ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">yancy.web</a>
+
+                </div>
+                <div id="navbar" class="navbar-collapse collapse nav-top">
+                    <ul class="nav navbar-nav navbar-transparent navbar-right">
+                        <li class="active"><a href="index.html">
+                            <span class="glyphicon glyphicon-home">
+                            </span>首页</a></li>
+                        <li><a href="register.html" onclick="toDown()">
+                            <span class="glyphicon glyphicon-download-alt">
+                            </span>一键注册</a></li>
+                        <li><a href="//yancy.xiaomy.net/static/html/login.html">加入QQ群</a></li>
+                        <li><a href="#">
+                            <span class="glyphicon glyphicon-globe">
+                            </span>关于我们</a></li>
+                        <li><button type="button" onclick="alert('加入代理商,详情联系客服QQ1191500820')" class="btn btn-default navbar-btn">代理商</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- home -->
+
+    <section class="home">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="intro">
+                        <p><span class="glyphicon glyphicon-grain"></span></p>
+                        <strong class="welcome">Welcome To Yancy.FirstWeb </strong>
+                        <h3>致力于打造最便捷的微信自动回复</h3>
+                        <!--span>Be part of a revolution</span-->
+                        <ul class="list-inline">
+                            <li><a class="btn btn-primary" href="register.html" role="button" onclick="toDown()">一键注册</a> </li>
+                            <li><a class="btn btn-default" target="_blank" href="login.html" role="button">登录</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- about us -->
+    <section class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <h2>基于图灵API接口的自动回复</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="about-item">
+                        <div><i class="ion ion-ios-analytics-outline"></i></div>
+                        <span>微信接入</span>
+                        <h3>支持公总号，个人微信接入</h3>
+                        <p>无需自己外接接口，扫码登录即可，且可以自定义设置关键字回复</p>
+                        <!-- <a href="#">Read More</a> -->
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="about-item">
+                        <div><i class="ion ion-ios-world-outline"></i></div>
+                        <span>人机交互</span>
+                        <h3>无需再次登录，测试此接口的各种功能</h3>
+                        <p>实现各种智能回复,查天气,酒店,浏览器定位等，且可以自定义设置关键字回复！</p>
+                        <!-- <a href="#">Read More</a> -->
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="about-item">
+                        <div><i class="ion ion-ios-filing-outline"></i></div>
+                        <span>自定义爬虫</span>
+                        <h3>本站快速爬取自定义关键字的数据</h3>
+                        <p>还没有做，等我爬虫学完再做，等我爬虫学完再做</p>
+                        <!-- <a href="#">Read More</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- card -->
+            <div class="row m-t-90" id="down">
+                <div class="col-md-4 col-sm-6">
+                    <div class="caption-img" onclick="downexe();">
+                        <img class="img-responsive" src="../../../static/img/5.png" alt=""/>
+                        <div id="box">
+                        <div class="caption-tag">
+                            <h4>第一步:注册和登陆</h4>
+                            <span>一键注册，然后登陆</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="caption-img">
+                        <img class="img-responsive" src="../../../static/img/6.png" alt=""/>
+                        <div class="caption-tag" onclick="alert('3天内上线')">
+                            <h4>第二步:微信接入</h4>
+                            <span>点击界面的windows符号</span>
+                            <span>然后点击微信登录</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="caption-img">
+                        <img class="img-responsive" src="../../../static/img/7.png" alt=""/>
+                        <div class="caption-tag">
+                            <h4>第三步:插入自定义词条</h4>
+                            <span>点击插入关键字</span>
+                             <span>然后插入关键字和回复值</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- skillbars -->
+            <div class="row m-t-90">
+                <div class="col-md-6 col-sm-12">
+                    <div class="skillbars">
+                        <h4>连通率</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:96%">
+                                96%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skillbars">
+                        <h4>词条数（测试阶段API每天调用100次）</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:2%">
+                                2%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skillbars">
+                        <h4>价格(内测阶段全免费)</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                0%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skillbars">
+                        <h4>多浏览器支持</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <!--轮播-->
+                    <div class="swiper-container" id="topSwiper">
+                        <div class="swiper-wrapper">
+                            <!--循环生成轮播图-->
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="../../../static/img/1.png">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="../../../static/img/2.png">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="../../../static/img/3.png">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="../../../static/img/4.png">
+                                </a>
+                            </div>
+
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- 如果需要导航按钮 -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- work -->
+    <section class="work">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>我们的其他产品</h2>
+                    <strong>每隔一段时间，我们都会推出新的独立或辅助工具供大家使用.</strong>
+                    <a class="btn btn-primary" href="#" role="button">View all project</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="work-item">
+                        <img class="img-responsive" src="../../../static/img/other1.png" alt=""/>
+                        <div class="work-overlay">
+                            <h3>接入QQ</h3>
+                            <span>实现QQ端的自动回复</span>
+                            <div class="btn-group" role="group" aria-label="">敬请期待</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="work-item">
+                        <img class="img-responsive" src="../../../static/img/other.png" alt=""/>
+                        <div class="work-overlay">
+                            <h3>插入网页</h3>
+                            <span>自定义模板插入</span>
+                            <div class="btn-group" role="group" aria-label="">敬请期待</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="work-item">
+                        <img class="img-responsive" src="../../../static/img/spider.jpg" alt=""/>
+                        <div class="work-overlay">
+                            <h3>自定义爬虫</h3>
+                            <span>自定义爬取内容</span>
+                            <div class="btn-group" role="group" aria-label="">敬请期待</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            <!-- address -->
+            <section class="address">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 address-1 p-0">
+                        <div class="office">
+                            <i class="icon ion-at"></i>
+                            <h3>作者邮箱</h3>
+                            <h4>1191500820@qq.com</h4>
+                            <span>如果使用中发现任何问题，或者好的建议，都可以发邮件通知作者改进</span>
+                            <a href="#">Get directions </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 address-2 p-0">
+                        <div class="office">
+                            <i class="icon ion-android-contacts"></i>
+                            <h3>官方QQ客服</h3>
+                            <h4>1191500820</h4>
+                            <span>有任何问题，都可以联系客服处理</span>
+                            <a href="#">Get directions </a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+    <!-- footer -->
+    <div class="container">
+    <footer class="footer">
+        <div class="row">
+            <div class="col-md-2  col-sm-3 col-xs-6">
+                <div class="footer-logo">
+
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <h3>链接</h3>
+                <ul class="list-unstyled links">
+                    <li>关于</li>
+                    <li>服务</li>
+                    <li>下载</li>
+                    <li>文档</li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <h3>服务</h3>
+                <ul class="list-unstyled links">
+                    <li>法律声明</li>
+                    <li>服务条款</li>
+                    <li>免责声明</li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <h3>其他</h3>
+                <ul class="list-unstyled links">
+                    <li>更新日志</li>
+                    <li>常见问题</li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <h3>载体</h3>
+                <ul class="list-unstyled links">
+                    <li><i class="ion ion-social-facebook"></i>facebok</li>
+                    <li><i class="ion ion-social-twitter"></i>Twitter</li>
+                    <li><i class="ion ion-social-linkedin"></i>Linkedin</li>
+                    <li><i class="ion ion-social-googleplus"></i>以上都没有</li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <h3>联系</h3>
+                <ul class="list-unstyled links">
+                    <li>QQ:1191500820</li>
+                    <li>邮箱:1191500820@qq.com</li>
+                    <li>QQ群:654978404</li>
+                    <li>Yancy.Web</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <p class="pull-left" >&copy;Designed By <a href="index.html">yancy.Web</a> 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../mode/js/swiper.jquery.js"></script>
+<script src="js/swiper.js" ></script>
+</body>
+
+
+
+
+
+                       

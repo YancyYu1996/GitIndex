@@ -1,0 +1,342 @@
+.container-fluid{
+    height: 500px;
+    background-image: url("../../../../static/img/building.jpg");
+    width: 100%;
+    background-size: cover;
+}
+.container{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+}
+.navbar-btn.btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    margin-left: 10px;
+    padding: 9px 50px 0 50px;
+    align-content: center;
+    border-radius: 30px;
+}
+#navbar li{
+    padding: 15px 0 0 0;
+    opacity: 0.8;
+}
+#navbar a{
+    padding: 18px 15px 0 0;
+    font-size : 14px;
+    color: white;
+    background: none;
+}
+#navbar span{
+    letter-spacing: 4px;
+}
+
+a:hover{
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dce6f5,endColorstr=#00a7ee,GradientType=1);
+}
+.navbar-brand{
+    font-family: 华文行楷;
+    font-size : 40px;
+    padding: 13px;
+    color: white;
+}
+/*home中的字体样式*/
+.container-fluid .home{
+    padding: 150px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: 宋体;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: white;
+}
+/*home中的图标样式*/
+.home span{
+    font-size: 100px;
+}
+.home ul{
+    padding: 10px 10px;
+}
+
+/*边框阴影*/
+.about-item:hover{
+    box-shadow:0px 0px 10px 5px #b6bcbf;
+    /*这6个值分别是：left值 、top值、透明度、阴影外延宽度、颜色、向里凹陷（选填，默认为外延）*/
+}
+.about-us .container{
+    font-family: inherit;
+    color: inherit;
+}
+.about-item span{
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.about-item{
+    padding: 10px;
+    margin-top: 30px;
+}
+.about-us h2 {
+    font-size: 30px;
+    font-weight: 300;
+}
+.about-item h3 {
+    color: #5a5a5a;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    max-width: 300px;
+    text-transform: capitalize;
+}
+.about-item p {
+    color: #7f90a0;
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 300px;
+}
+.about-item i {
+    font-size: 50px;
+    color: #197bff;
+}
+#down .caption-img:hover{
+    transform: scale(1.5) ;
+}
+#down .caption-img:hover .caption-tag{
+    background-color:black ;
+
+}
+/*设置外围颜色*/
+#box{
+    background: black;
+}
+#down .caption-img{
+    transition: all 0.3s;
+}
+#down .caption-tag h4{
+    font-size: 28px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 8px;
+    position: relative;
+    z-index: 2;
+}
+#down .caption-tag span {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+#down .caption-tag{
+    color: white;
+    background-color: #b6bcbf;
+    transition-property: background-color;
+    transition-duration: 2s;
+}
+#down{
+    padding: 80px 0 0 0;
+}
+/*进度条*/
+.col-md-6{
+    padding: 100px 20px 0 20px;
+}
+.skillbars h4 {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #7f90a0;
+    font-weight: 300;
+}
+/*
+    顶部轮播
+*/
+#topSwiper {
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
+}
+
+#topSwiper div a {
+    display: inline-block;
+    height: 400px;
+    width: 500px;
+}
+
+#topSwiper img {
+    width: 100%;
+    height: 100%;
+}
+/*session*/
+section {
+    padding: 60px 0 0px 0;
+}
+.work h2 {
+    font-size: 30px;
+    font-weight: 300;
+}
+.work strong {
+    color: #848484;
+    display: block;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    word-spacing: 3px;
+}
+.work-item .btn-group {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    margin-left: 100px;
+    padding: 9px 50px 9px 50px;
+    align-content: center;
+    border-radius: 30px;
+}
+.btn.btn-primary {
+    background-color: #017CEF;
+}
+.btn {
+    box-shadow: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-right: 3px;
+}
+.col-md-4{
+    padding: 50px;
+}
+
+.work-overlay{
+    background-color: white;
+    color:white;
+    transform:translateY(0);
+    transition-property: transform,background-color;
+    transition-duration: 1s,1s;
+}
+.col-md-4 :hover .work-overlay{
+    transform:translateY(-120px);
+    background: #007aff;
+}
+.work-overlay h3{
+    padding: 15px 10px 0px 10px;
+    font-size: 28px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+.work-overlay span {
+    padding: 0 10px 0px 10px;
+    margin: 0;
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.address-1 {
+    position: relative;
+    text-align: center;
+    min-height: 400px;
+    background: url(../../../../static/img/london.jpg) repeat scroll left top / cover;
+}
+
+.address-2 {
+    position: relative;
+    text-align: center;
+    min-height: 400px;
+    background: url(../../../../static/img/sanfran.jpg) repeat scroll left top / cover;
+}
+
+.office {
+    color: #eee;
+    padding-top: 0px;
+}
+
+.p-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.office h3 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.office h4 {
+    opacity: 0.9;
+    font-size: 24px;
+    font-weight: 300;
+}
+.office span {
+    width: 90%;
+    display: block;
+    color: #7f90a0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.office i{
+    font-size: 60px;
+}
+/*footer*/
+.footer {
+    width: 100%;
+    height:350px;   /* footer的高度一定要是固定值*/
+    position:absolute;
+    padding:60px 0;
+    left:0px;
+    background-color: #1A252E;
+}
+.footer-logo .footer-logo-text {
+    color: #fff;
+    font-family: "Oleo Script",cursive;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 0px 0 0 60px;
+    margin-bottom: 10px;
+
+}
+.footer-logo p {
+    color: #eee;
+    padding: 0px 0 0 50px;
+    font-weight: 400;
+    font-size: 13px;
+}
+.footer h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+.links li {
+    cursor: pointer;
+    color: #94a5b4;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+.copyright p {
+    padding: 0px 0px 0 100px;
+    color: #9b9b9b;
+}
+
+.footer .col-md-2{
+    width: 15%;
+}
+
+.footer hr {
+    border-color: #393939;
+    align-content: center;
+    width: 80%;
+}

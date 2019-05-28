@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>聊天界面</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../mode/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../mode/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../mode/css/jquery.mobile.flatui.css"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+</head>
+<body style="background-size: cover;" background="../../img/chat.jpg">
+<div data-role="page" style="opacity: 0.8">
+    <div data-role="header" class="header linear-g">
+        <a href="#panel-left" data-iconpos="notext" class="glyphicon glyphicon-th-large col-xs-2 text-right"> </a>
+        <a class="text-center col-xs-8" href="index.html">yancy.web</a>
+        <a href="#panel-right" data-iconpos="notext" class="glyphicon glyphicon-user col-xs-2 text-left"> </a>
+    </div>
+    <div data-role="panel" data-position="left" data-display="push" class="list-group shortcut_menu dn linear-g"
+         id="panel-left">
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-home"> </span> &nbsp;</a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit" > </span > &nbsp;<span id="wxchat">微信登录</span></a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit"> </span> &nbsp;<span id="wxchatend">微信退出</span></a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list"> </span> &nbsp;<span id="chatmsg">聊天记录</span></a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt"> </span> &nbsp;<span id="QR">二维码</span></a>
+    </div>
+    <div data-role="panel" data-position="right" data-display="push" class="user_box text-center dn linear-g"
+         id="panel-right">
+        <div class="u_info">
+            <img class="avatar" src="../mode/images/avatar.png" alt="ChatHead">
+            <span class="username" id="username"></span>
+        </div>
+        <ul class="user_menu">
+            <li class="menu"><a href="#"><span class="glyphicon glyphicon-cog"> </span> &nbsp;settings</a></li>
+            <li class="menu"><a href="#"><span class="glyphicon glyphicon-lock"> </span> &nbsp;<span id="ChangePasswd">修改密码</span></a></li>
+            <li class="menu"><a href="#"><span class="glyphicon glyphicon-off"> </span> &nbsp;<span id="logout">安全退出</span></a></li>
+        </ul>
+    </div>
+    <div data-role="content" class="container" role="main">
+
+        <ul class="content-reply-box mg10" id="msgbox" style="display: none">
+            <li class="odd" id="otherbox">
+                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/robot.jpg" alt=""><span
+                        class="user-name">机器人</span></a>
+                <div class="reply-content-box">
+                    <span class="reply-time" id="nowtime2"></span>
+                    <div class="reply-content pr">
+                        <span class="arrow">&nbsp;</span>
+                        <b id="msg2"></b>
+                    </div>
+                </div>
+            </li>
+            <li class="even" id="userbox">
+                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/timg.jpg" alt=""><span
+                        class="user-name">你</span></a>
+                <div class="reply-content-box">
+                    <span class="reply-time" id="nowtime1"></span>
+                    <div class="reply-content pr">
+                        <span class="arrow">&nbsp;</span>
+                        <b id="msg1"></b>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="operating row text-center linear-g">
+            <li class="col-xs-3"><a href="#"><span class="glyphicon glyphicon-tags"></span> &nbsp;<span id="inserdbut">插入关键字</span></a></li>
+            <li class="col-xs-3"><a href="#"><span class="glyphicon glyphicon-comment"></span> &nbsp;<span id ="resvbut">回复</span></a></li>
+            <li class="col-xs-3"><a href="#"><span class="glyphicon glyphicon-heart"></span> &nbsp;<span  id="toTop">顶部</span></a></li>
+            <li class="col-xs-3"><a href="#"><span class="glyphicon glyphicon-heart"></span> &nbsp;<span  id="clear">清空</span></a></li>
+        </ul>
+        <div id="inputgroup" >
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="需要发送的消息" aria-describedby="basic-addon2"
+                   id="sendmsgbox">
+            <span class="input-group-addon">回车</span>
+            </div>
+
+             <center>
+                <button type="button" class="btn btn-default dropdown-toggle"
+                    aria-haspopup="true" aria-expanded="false" style=":right;color: #5cb85c;display: none" id="sendmsg">
+                发送信息
+            </button>
+        </center>
+</div>
+
+        <div  id="insertgroup" style="display: none">
+        <div class="input-group">
+        <span class="input-group-addon">插入关键字</span>
+
+            <input type="text" class="form-control" placeholder="需要插入的关键字" aria-describedby="sizing-addon2"
+                   id="insertkey">
+            </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">关键字对应值</span>
+            <input type="text" class="form-control" placeholder="关键字对应的值" aria-describedby="sizing-addon2"
+                   id="insertvalue" style="height: 80px">
+        </div>
+        <br>
+            <center>
+                <button type="button" class="btn btn-default dropdown-toggle"
+                    aria-haspopup="true" aria-expanded="false" style=":right;color: #5cb85c" id="sendmsg2">
+                Insert the entry
+            </button>
+        </center>
+            </div>
+        <div class="alert alert-success" role="alert" style="display:none;" id="success">成功插入数据到数据库</div>
+        <div class="alert alert-danger" role="alert" style="display:none;" id="warning">插入错误</div>
+
+    </div>
+
+
+</div>
+<script type="text/javascript" src="../mode/js/jquery.min.js"></script>
+<script type="text/javascript" src="../mode/js/jquery.mobile-1.4.0-rc.1.js"></script>
+<script type="text/javascript" src="js/ChatRobot.js"></script>
+</body>
+</html>
