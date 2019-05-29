@@ -1,12 +1,15 @@
+# -*- coding:UTF-8 -*-
 import App.ChatRobot,json
 from flask import Blueprint, request, jsonify, session
 from App.ext import db
 from App.models import UserChatInformation,KeyMap
 from time import sleep
-from threading import Thread
+# from threading import Thread
+from multiprocessing import Process
 import inspect
 import ctypes
-
+from App.ChatRobot import robot_conf
+thing = None
 Robot = Blueprint("robot_blue", __name__)
 # 储存数据的方法
 def save_msg(username,msg,data):
@@ -32,27 +35,11 @@ def save_msg(username,msg,data):
         informs.append(usermsg)
 
     # 将msg变成json文件写入本地data文件夹
-    with open(r"App\static\html\mode\data\data.json", "wt") as fw:
+    with open(r"App/static/html/mode/data/data.json", "wt") as fw:
         json.dump(informs, fw)
     # 打印机器人回复的消息
     print(data)
 
-# 强制stop线程的方法
-def _async_raise(tid, exctype):
-    """raises the exception, performs cleanup if needed"""
-    if not inspect.isclass(exctype):
-        exctype = type(exctype)
-    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))
-    if res == 0:
-        raise ValueError("invalid thread id")
-    elif res != 1:
-        # """if it returns a number greater than one, you're in trouble,
-        # and you should call it again with exc=NULL to revert the effect"""
-        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
-        raise SystemError("PyThreadState_SetAsyncExc failed")
-
-def stop_thread(thread):
-    _async_raise(thread.ident, SystemExit)
 
 @Robot.route("/ChatRobot/<mode>/", methods=["POST"])     # 登录
 @Robot.route("/ChatRobot/", methods=['GET',"POST"])     # 登录
@@ -66,21 +53,30 @@ def Chat(mode=None):
         return jsonify({"msg": "GET"})
 
     elif request.method == "POST":
+        username = session.get("username")
+        print(username)
         if mode == "wxChat":
             # 创建一个图片
-            with open("App\static\m.png","wt"):
-                pass
-            thing = Thread(target=App.ChatRobot.wx_robot)
-            thing.start()
-            sleep(2)  # 创建子进程后等待2秒
-            return jsonify({"status": "wxconnect"}), 201
+
+            if username:
+                robot_conf.qr_path = r"App/static/"+username+".png"
+                apikey = request.form.get("apikey")
+
+                with open(robot_conf.qr_path,"wt"):
+                    pass
+
+                Process(target=App.ChatRobot.wx_robot,args=(apikey,)).start()
+
+                sleep(2)  # 创建子进程后等待2秒
+                return jsonify({"status": "wxconnect","username":username}), 201
 
         elif mode=="wxChatend":
-            stop_thread(thing)
+
             print("wxchat关闭")
+
             return jsonify({"status": "disconnect"}), 201
         elif mode == "location":  # 如果是定位，则将经纬度存入数据库
-            username = session.get("username")
+
             # 若未登录
             if username is None:
                 return jsonify({"status": "not log in"}), 401
@@ -99,7 +95,7 @@ def Chat(mode=None):
             return jsonify({"status": "location"}), 201
         elif mode=="insert":
             # 将数据插入到数据库
-            username = session.get("username")
+
             # 若未登录
             if username is None:
                 return jsonify({"status": "not log in"}), 401
@@ -136,13 +132,17 @@ def Chat(mode=None):
             return jsonify({"msg":"insert success"})
 
         else:  # 如果是网页端交互
-            hum_inte = App.ChatRobot.tuling_robot.hum_inter()  # 创建人机交互对象
+            #获取api
+            apikey = request.form.get("apikey")  # 获得apikey
+
+            hum_inte = App.ChatRobot.tuling_robot.hum_inter(apikey=apikey)  # 创建人机交互对象
             if hum_inte:
-                username = session.get("username")
+
                 # 若未登录
                 if username is None:
                     return jsonify({"status": "not log in"}), 401
                 msg = request.form.get("msg")
+
                 # 先判断是否有定位关键字
                 if "定位" in msg: # 如果有定位两个字
                     data = {"text":"location"}
@@ -204,7 +204,7 @@ def ChatInform():
 
         print(informs)
         # 将msg变成json文件写入本地data文件夹
-        with open(r"App\static\html\mode\data\data.json","wt") as fw:
+        with open(r"App/static/html/mode/data/data.json","wt") as fw:
             json.dump(informs, fw)
         return jsonify(informs), 201
 

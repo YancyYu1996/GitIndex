@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 from flask import Blueprint, request, jsonify, make_response, session, render_template
 from App.ext import db
 from App.models import User
@@ -34,6 +35,7 @@ def login():
                 # 判断IsSaved是否被选中
                 if request.form.get("IsSaved"):
                     # 将密码存在cookie中
+                    print("login ok")
                     session['passwed'] = passwd
                 return jsonify(data), 200
         else:

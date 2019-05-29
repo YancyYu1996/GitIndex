@@ -1,11 +1,13 @@
+# -*- coding:UTF-8 -*-
 from App.ChatRobot import tuling_robot
 
 
 # 微信机器人端接入
-def wx_robot():
+def wx_robot(apiley):
     import App.ChatRobot.robot as robots
-    robots.wxrobot()
+    robots.wxrobot(apiley)
     robots.embed()
+
 
 
 

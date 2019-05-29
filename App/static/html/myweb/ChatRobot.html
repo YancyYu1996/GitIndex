@@ -18,6 +18,7 @@
     <div data-role="header" class="header linear-g">
         <a href="#panel-left" data-iconpos="notext" class="glyphicon glyphicon-th-large col-xs-2 text-right"> </a>
         <a class="text-center col-xs-8" href="index.html">yancy.web</a>
+
         <a href="#panel-right" data-iconpos="notext" class="glyphicon glyphicon-user col-xs-2 text-left"> </a>
     </div>
     <div data-role="panel" data-position="left" data-display="push" class="list-group shortcut_menu dn linear-g"
@@ -26,7 +27,7 @@
         <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit" > </span > &nbsp;<span id="wxchat">微信登录</span></a>
         <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit"> </span> &nbsp;<span id="wxchatend">微信退出</span></a>
         <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list"> </span> &nbsp;<span id="chatmsg">聊天记录</span></a>
-        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt"> </span> &nbsp;<span id="QR">二维码</span></a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt"> </span> &nbsp;<span id="QR">点击二维码刷新</span></a>
     </div>
     <div data-role="panel" data-position="right" data-display="push" class="user_box text-center dn linear-g"
          id="panel-right">
@@ -38,6 +39,10 @@
             <li class="menu"><a href="#"><span class="glyphicon glyphicon-cog"> </span> &nbsp;settings</a></li>
             <li class="menu"><a href="#"><span class="glyphicon glyphicon-lock"> </span> &nbsp;<span id="ChangePasswd">修改密码</span></a></li>
             <li class="menu"><a href="#"><span class="glyphicon glyphicon-off"> </span> &nbsp;<span id="logout">安全退出</span></a></li>
+            <div class="input-group">
+                <span class="input-group-addon">APIKEY</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="apikey">
+            </div>
         </ul>
     </div>
     <div data-role="content" class="container" role="main">

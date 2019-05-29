@@ -1,3 +1,4 @@
+
 var status = 0;
 var flag=false;
 //用来检查输入数据正确性

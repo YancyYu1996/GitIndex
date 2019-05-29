@@ -1,4 +1,4 @@
-
+# -*- coding:UTF-8 -*-
 from App.views.AopBlue import blue
 from App.views.ApiPerson import api
 from App.views.ApiRobot import Robot

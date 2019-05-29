@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 import os
 from flask_migrate import MigrateCommand
 from flask_script import Manager

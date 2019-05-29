@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 from flask import Flask
 
 from App.ext import init_ext

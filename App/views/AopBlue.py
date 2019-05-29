@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 from flask import Blueprint, abort, request
 
 blue = Blueprint("first_blue", __name__, url_prefix='/blue/')

@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 # 声明一个标志位
 close_flag = 0
 def get_db_uri(dbinfo):
@@ -31,7 +32,7 @@ class DevelopConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "yancy",
+        "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": "3306",
         "NAME": "flaskproject"
@@ -48,7 +49,7 @@ class TestingConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "yancy",
+        "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": "3306",
         "NAME": "flaskproject"
@@ -63,7 +64,7 @@ class StagingConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "yancy",
+        "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": "3306",
         "NAME": "flaskproject"
@@ -78,7 +79,7 @@ class ProductConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "yancy",
+        "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": "3306",
         "NAME": "flaskproject"

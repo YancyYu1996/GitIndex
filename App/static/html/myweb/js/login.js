@@ -33,6 +33,7 @@ $(function () {
          //用变量存取用户的用户名和密码
         var username = $("#InputUname").val();
         var password = $("#InputPassword").val();
+        console.log(username,password)
          $.ajax("/api/login/",{
             // 期待返回的数据类型，不写会自动判断， 根据mime
             dataType: "json",

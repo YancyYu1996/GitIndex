@@ -1,6 +1,12 @@
-username = "";
-
+var username = "";
+var path = ""
 function f() {
+    // 先检测apikey有没有输入,如果没有输入
+    if(!($("#apikey").val())){
+        alert("请在右边的菜单中添加apikey吧")
+    }
+    else
+    {
     var myDate = new Date();
     $('#msg1').html("");
     $('#nowtime1').html("");
@@ -14,7 +20,7 @@ function f() {
         // 期待返回的数据类型，不写会自动判断， 根据mime
         dataType: "json",
         type: "POST",
-        data: {"username": username, "msg": $("#sendmsgbox").val()},
+        data: {"username": username, "msg": $("#sendmsgbox").val(),"apikey":$("#apikey").val()},
         success: function (data) {
              $("#sendmsgbox").attr("value","");
             try {
@@ -53,6 +59,7 @@ function f() {
             window.open("/static/html/myweb/login.html")
         }
     })
+        }
 }
 
 $(function () {
@@ -100,12 +107,22 @@ $(function () {
             type: "POST",
             data: {"status": "connect"},
             success: function (data) {
+                username = data["username"];
+                path = '../../../../static/'+username+'.png';
+                console.log(username,path);
                 $("#QR").html("");
-                $("#QR").append($("<img src='../../../../static/m.png' style='width: 150px;height: 150px'>"));
+                $("#QR").append($("<img src="+path+" style='width: 150px;height: 150px'>"));
 
             }
 
         })
+    });
+
+    //监听刷新二维码的按键
+    $("#QR").click(function () {
+        console.log(username,path);
+        $("#QR").html("");
+        $("#QR").append($("<img src="+path+" style='width: 150px;height: 150px'>"));
     });
     //监听微信按键退出事件
     $("#wxchatend").click(function () {
@@ -114,7 +131,7 @@ $(function () {
             type: "POST",
             data: {"status": "disconnect"},
             success: function (data) {
-                $("#QR").html($("<img src=''>"));
+                $("#QR").html("");
 
             }
         });
@@ -143,6 +160,7 @@ $("#ChangePasswd").click(function () {
 });
 //监听一个插入框的点击事件
 $("#sendmsg2").click(function () {
+
     console.log($("#insertkey").val());
     if ($("#insertkey").val() === "") {
         $("#warning").show();
