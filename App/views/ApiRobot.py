@@ -56,13 +56,14 @@ def Chat(mode=None):
 
     elif request.method == "POST":
         username = session.get("username")
+        robot_conf.apikey = request.form.get("apikey")
         print(username)
         if mode == "wxChat":
             # 创建一个图片
 
             if username:
                 robot_conf.qr_path = r"App/static/" + username + ".png"
-                # robot_conf.apikey = request.form.get("apikey")
+
 
                 with open(robot_conf.qr_path, "wt"):
                     pass
@@ -135,7 +136,7 @@ def Chat(mode=None):
 
         else:  # 如果是网页端交互
             #获取api
-            apikey = request.form.get("apikey")  # 获得apikey
+            # apikey = request.form.get("apikey")  # 获得apikey
 
             hum_inte = App.ChatRobot.tuling_robot.hum_inter(apikey=apikey)  # 创建人机交互对象
             if hum_inte:
