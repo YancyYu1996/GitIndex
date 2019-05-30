@@ -1,14 +1,16 @@
 # -*- coding:UTF-8 -*-
-import App.ChatRobot,json
-from flask import Blueprint, request, jsonify, session
-from App.ext import db
-from App.models import UserChatInformation,KeyMap
-from time import sleep
 # from threading import Thread
+import json
 from multiprocessing import Process
-import inspect
-import ctypes
-from App.ChatRobot import robot_conf
+from time import sleep
+
+from flask import Blueprint, request, jsonify, session
+
+import App.ChatRobot
+from App import robot_conf
+from App.ext import db
+from App.models import UserChatInformation, KeyMap
+
 thing = None
 Robot = Blueprint("robot_blue", __name__)
 # 储存数据的方法
@@ -59,13 +61,13 @@ def Chat(mode=None):
             # 创建一个图片
 
             if username:
-                robot_conf.qr_path = r"App/static/"+username+".png"
-                apikey = request.form.get("apikey")
+                robot_conf.qr_path = r"App/static/" + username + ".png"
+                # robot_conf.apikey = request.form.get("apikey")
 
-                with open(robot_conf.qr_path,"wt"):
+                with open(robot_conf.qr_path, "wt"):
                     pass
 
-                Process(target=App.ChatRobot.wx_robot,args=(apikey,)).start()
+                Process(target=App.ChatRobot.wx_robot).start()
 
                 sleep(2)  # 创建子进程后等待2秒
                 return jsonify({"status": "wxconnect","username":username}), 201
