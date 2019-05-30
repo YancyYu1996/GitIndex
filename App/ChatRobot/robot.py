@@ -2,10 +2,10 @@ from wxpy import *
 
 from App import robot_conf
 from App.ChatRobot import wx_friend
-
+bot = Bot(cache_path=True, qr_path=robot_conf.qr_path)
 
 class wxrobot:
-    bot = Bot(cache_path=True, qr_path=robot_conf.qr_path)
+
     #bot = Bot(cache_path=True)
     @bot.register(msg_types=FRIENDS)
     def auto_reply(msg):

@@ -3,7 +3,7 @@ var path = ""
 function f() {
     // 先检测apikey有没有输入,如果没有输入
     if(!($("#apikey").val())){
-        alert("请在右边的菜单中添加apikey吧")
+        alert("请在回复框上方添加apikey吧")
     }
     else
     {
@@ -101,11 +101,17 @@ $(function () {
     //监听微信按键登录事件
     $("#wxchat").click(function () {
         console.log("wxconnectclik");
+        if(!($("#apikey").val())){
+        alert("请在回复框上方添加apikey吧")
+        }
+        else
+        {
+
         $.ajax("/ChatRobot/wxChat/", {
             // 期待返回的数据类型，不写会自动判断， 根据mime
             dataType: "json",
             type: "POST",
-            data: {"status": "connect"},
+            data: {"status": "connect","apikey":$("#apikey").val()},
             success: function (data) {
                 username = data["username"];
                 path = '../../../../static/'+username+'.png';
@@ -116,6 +122,7 @@ $(function () {
             }
 
         })
+        }
     });
 
     //监听刷新二维码的按键
@@ -129,7 +136,7 @@ $(function () {
         $.ajax("/ChatRobot/wxChatend/",{
             dataType: "json",
             type: "POST",
-            data: {"status": "disconnect"},
+            data: {"status": "disconnect","apikey":$("#apikey").val()},
             success: function (data) {
                 $("#QR").html("");
 
@@ -174,7 +181,7 @@ $("#sendmsg2").click(function () {
         $.ajax("/ChatRobot/insert/", {
             dataType: "json",
             type: "POST",
-            data: {"username": username, "keys": $("#insertkey").val(), "value": $("#insertvalue").val()},
+            data: {"username": username, "keys": $("#insertkey").val(), "value": $("#insertvalue").val(),"apikey":$("#apikey").val()},
             success: function () {
                 $("#success").show();
                 $("#warning").hide();

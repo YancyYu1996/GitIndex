@@ -56,7 +56,7 @@ def Chat(mode=None):
 
     elif request.method == "POST":
         username = session.get("username")
-        robot_conf.apikey = request.form.get("apikey")
+        robot_conf.api_key = request.form.get("apikey")
         print(username)
         if mode == "wxChat":
             # 创建一个图片
@@ -138,7 +138,7 @@ def Chat(mode=None):
             #获取api
             # apikey = request.form.get("apikey")  # 获得apikey
 
-            hum_inte = App.ChatRobot.tuling_robot.hum_inter(apikey=apikey)  # 创建人机交互对象
+            hum_inte = App.ChatRobot.tuling_robot.hum_inter(apikey=robot_conf.api_key)  # 创建人机交互对象
             if hum_inte:
 
                 # 若未登录
