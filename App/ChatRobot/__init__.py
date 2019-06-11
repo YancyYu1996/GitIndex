@@ -1,12 +1,13 @@
 # -*- coding:UTF-8 -*-
 from App.ChatRobot import tuling_robot
-
+from multiprocessing import Process
 
 # 微信机器人端接入
 def wx_robot():
     import App.ChatRobot.robot as robots
-    while True:
-        robots.wxrobot()
+    # while True:
+    robots.wxrobot()
+    # robots.embed()
 
 
 #

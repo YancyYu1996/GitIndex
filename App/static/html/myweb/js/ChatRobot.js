@@ -24,7 +24,7 @@ function f() {
         success: function (data) {
              $("#sendmsgbox").attr("value","");
             try {
-                var updata_msg = "";
+                var updata_msg = "<p style='float: right'>"+$('#sendmsgbox').val()+"</p>";
                 if (data["list"]) {
                     console.log(data["list"]);
                     for (var ve of data["list"]) {
@@ -41,7 +41,7 @@ function f() {
                     }
                     else
                     {
-                    updata_msg = "<p>" + data["text"] + "</p>";
+                    updata_msg += "<p>" + data["text"] + "</p>";
                     updata_msg += "<a href='" + data["url"] + "' target=_blank>" + data["url"] + "</a>";
                     }
                 }
@@ -49,6 +49,7 @@ function f() {
             //如果是普通数据
             catch (e) {
             }
+
             $('#nowtime2').html("");
             $("#msg2").append($(updata_msg));
             $("#nowtime2").append(myDate.toLocaleTimeString());
@@ -164,6 +165,28 @@ $("#logout").click(function () {
 //监听修改密码的点击事件
 $("#ChangePasswd").click(function () {
     window.open('ChangePasswd.html',target = "self")
+});
+//监听删除键值点击事件
+$("#delete").click(function () {
+        console.log($("#insertkey").val());
+    if ($("#insertkey").val() === "") {
+        $("#deletewarning").show();
+        $("#deletesuccess").hide();
+    }
+
+    if (($("#insertvalue").val() !== "")) {
+        $.ajax("/ChatRobot/delete/", {
+            dataType: "json",
+            type: "POST",
+            data: {"username": username, "keys": $("#insertkey").val(),"apikey":$("#apikey").val()},
+            success: function () {
+                $("#deletesuccess").show();
+                $("#deletewarning").hide();
+
+            }
+        })
+
+    }
 });
 //监听一个插入框的点击事件
 $("#sendmsg2").click(function () {

@@ -2,6 +2,7 @@
 # from threading import Thread
 import json
 from multiprocessing import Process
+from threading import Thread
 from time import sleep
 
 from flask import Blueprint, request, jsonify, session
@@ -68,7 +69,10 @@ def Chat(mode=None):
                 with open(robot_conf.qr_path, "wt"):
                     pass
 
-                Process(target=App.ChatRobot.wx_robot).start()
+                t = Thread(target=App.ChatRobot.wx_robot)
+                t.daemon = True
+                t.start()
+                # App.ChatRobot.wx_robot()
 
                 sleep(2)  # 创建子进程后等待2秒
                 return jsonify({"status": "wxconnect","username":username}), 201
@@ -117,7 +121,7 @@ def Chat(mode=None):
                         keymap = KeyMap.query.all()
                         for word in keymap:
                             fw.write(word.username + "," + word.keys + "," + word.value + "\n")
-                    return jsonify({"msg": "insert success"})
+                    return jsonify({"msg": "insert success"}),200
 
             # 若没有创建一个新的对象
             keymap = KeyMap()
@@ -133,6 +137,28 @@ def Chat(mode=None):
                 for word in keymap:
                     fw.write(word.username + "," + word.keys + ","+word.value+"\n")
             return jsonify({"msg":"insert success"})
+        elif mode == "delete": #如果是删除键值
+            # 将数据删除到数据库
+
+            # 若未登录
+            if username is None:
+                return jsonify({"status": "not log in"}), 401
+            keys = request.form.get("keys")
+
+            # 现在数据库中查找关键字 如果重复将其覆盖
+            keymap_all = KeyMap.query.all()
+            for word in keymap_all:
+                if keys == word.keys and username == word.username:
+                    db.session.delete(word)   # 删除数据
+                    db.session.commit()
+                    # 将数据存到config文件中  方便取出
+                    with open("App/config.txt", "wt") as fw:
+                        keymap = KeyMap.query.all()
+                        for word in keymap:
+                            fw.write(word.username + "," + word.keys + "," + word.value + "\n")
+                    return jsonify({"msg": "delete success"}),200
+            # 如果没有这个关键字,删除失败
+            return jsonify({"msg": "delete fail"}), 401
 
         else:  # 如果是网页端交互
             #获取api
@@ -158,6 +184,7 @@ def Chat(mode=None):
                         data={"text":word.value,"url":""}
                         save_msg(username, msg, word.value)
                         return jsonify(data), 201
+
                 data = hum_inte.sendmsg(msg) # 接收到的字是一个字典,如果是新闻，显示一个列表
                 # 避免出错 加上一个url属性
                 if not data.get("url"):

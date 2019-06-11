@@ -46,7 +46,7 @@
 
         <ul class="content-reply-box mg10" id="msgbox" style="display: none">
             <li class="odd" id="otherbox">
-                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/robot.jpg" alt=""><span
+                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/robot.jpg" alt="" id="robothead"><span
                         class="user-name">机器人</span></a>
                 <div class="reply-content-box">
                     <span class="reply-time" id="nowtime2"></span>
@@ -57,7 +57,7 @@
                 </div>
             </li>
             <li class="even" id="userbox">
-                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/timg.jpg" alt=""><span
+                <a class="user" href="#"><img class="img-responsive avatar_" src="../mode/images/timg.jpg" alt="" id="userhead"><span
                         class="user-name">你</span></a>
                 <div class="reply-content-box">
                     <span class="reply-time" id="nowtime1"></span>
@@ -77,7 +77,7 @@
         <div id="inputgroup" >
         <div class="input-group">
                 <span class="input-group-addon">APIKEY</span>
-                <input type="text" class="form-control" placeholder="输入apikey" aria-describedby="basic-addon1" id="apikey" value="51a1337c2b9d4031b89460045ddec3b7">
+                <input type="text" class="form-control" placeholder="输入apikey" aria-describedby="basic-addon1" id="apikey" value="daa7fcfafaad477399f96c2a72b7a7d9">
             <input type="text" class="form-control" placeholder="需要发送的消息" aria-describedby="basic-addon2"
                    id="sendmsgbox">
             <span class="input-group-addon">回车</span>
@@ -108,12 +108,18 @@
             <center>
                 <button type="button" class="btn btn-default dropdown-toggle"
                     aria-haspopup="true" aria-expanded="false" style=":right;color: #5cb85c" id="sendmsg2">
-                Insert the entry
+                插入
+            </button>
+                <button type="button" class="btn btn-default dropdown-toggle"
+                    aria-haspopup="true" aria-expanded="false" style=":right;color: #5cb85c" id="delete">
+                删除
             </button>
         </center>
-            </div>
-        <div class="alert alert-success" role="alert" style="display:none;" id="success">成功插入数据到数据库</div>
+            <div class="alert alert-success" role="alert" style="display:none;" id="success">成功插入数据到数据库</div>
         <div class="alert alert-danger" role="alert" style="display:none;" id="warning">插入错误</div>
+        <div class="alert alert-success" role="alert" style="display:none;" id="deletesuccess">成功删除数据到数据库</div>
+        <div class="alert alert-danger" role="alert" style="display:none;" id="deletewarning">删除错误</div>
+            </div>
 
     </div>
 
@@ -121,6 +127,7 @@
 </div>
 <script type="text/javascript" src="../mode/js/jquery.min.js"></script>
 <script type="text/javascript" src="../mode/js/jquery.mobile-1.4.0-rc.1.js"></script>
+ <script type="text/javascript" src="../mode/js/layer.js"></script>
 <script type="text/javascript" src="js/ChatRobot.js"></script>
 </body>
 </html>
