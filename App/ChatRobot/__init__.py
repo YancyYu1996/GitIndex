@@ -5,13 +5,14 @@ from multiprocessing import Process
 # 微信机器人端接入
 def wx_robot():
     import App.ChatRobot.robot as robots
-    # while True:
-    robots.wxrobot()
+    while True:
+        robots.wxrobot()
     # robots.embed()
 
 
 #
-#
+
+
 # if __name__ == "__main__":
 #     # develop分支测试
 #     while True:

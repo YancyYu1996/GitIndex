@@ -9,5 +9,5 @@ cy_three = "760f6fc7205b4832b36f38807db447d8"
 cy_four = "0927eabebc0f4097832d8076c7c4dfdb"
 cy_five = "b3a781be36bc44c7ac5cbf073f59ca59"
 qr_path = r"App/static/m.png"
-qr_path_test = r"/home/tarena/PycharmProjects/GitIndex/App/static/yancy6.png"
+qr_path_test = r"/home/tarena/PycharmProjects/GitIndex/App/static/yancy.png"
 api_key = cy_two

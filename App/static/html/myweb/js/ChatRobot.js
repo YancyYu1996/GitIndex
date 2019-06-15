@@ -249,5 +249,46 @@ $("#clear").click(function () {
 
 //获取一个聊天记录的操作
 $("#chatmsg").click(function () {
+
     window.open('ChatInform.html',target = "self")
+});
+$("#who").click(function () {
+    $("#sendmsgbox").val($("#who").text());
+    $('#sendmsg').click();
+});
+$("#FindHotel").click(function () {
+    $("#sendmsgbox").val($("#FindHotel").text());
+    $('#sendmsg').click();
+});
+$("#FindPic").click(function () {
+    $("#sendmsgbox").val($("#FindPic").text());
+    $('#sendmsg').click();
+});
+$("#FindWh").click(function () {
+    $("#sendmsgbox").val($("#FindWh").text());
+    $('#sendmsg').click();
+});
+$("#FindTr").click(function () {
+    $("#sendmsgbox").val($("#FindTr").text());
+    $('#sendmsg').click();
+});
+$("#StringUp").click(function () {
+    $("#sendmsgbox").val($("#StringUp").text());
+    $('#sendmsg').click();
+});
+$("#FindGp").click(function () {
+    $("#sendmsgbox").val($("#FindGp").text());
+    $('#sendmsg').click();
+});
+$("#FindDy").click(function () {
+    $("#sendmsgbox").val($("#FindDy").text());
+    $('#sendmsg').click();
+});
+$("#News").click(function () {
+    $("#sendmsgbox").val($("#News").text());
+    $('#sendmsg').click();
+});
+$("#Jok").click(function () {
+    $("#sendmsgbox").val($("#Jok").text());
+    $('#sendmsg').click();
 });

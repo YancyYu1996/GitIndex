@@ -7,103 +7,108 @@
       <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="bank"/>
-    <schema id="4" parent="1" name="Dictoray"/>
-    <schema id="5" parent="1" name="hongshi"/>
-    <schema id="6" parent="1" name="information_schema"/>
-    <schema id="7" parent="1" name="MOSHOU"/>
-    <schema id="8" parent="1" name="mysql"/>
-    <schema id="9" parent="1" name="performance_schema"/>
-    <schema id="10" parent="1" name="shool"/>
-    <schema id="11" parent="1" name="sys"/>
-    <schema id="12" parent="1" name="teachers"/>
-    <schema id="13" parent="1" name="user_information"/>
-    <table id="14" parent="2" name="alembic_version"/>
-    <table id="15" parent="2" name="key_map"/>
-    <table id="16" parent="2" name="user"/>
-    <table id="17" parent="2" name="user_chat_information"/>
-    <column id="18" parent="14" name="version_num">
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="user_information"/>
+    <schema id="9" parent="1" name="blog"/>
+    <schema id="10" parent="1" name="ComeHome"/>
+    <schema id="11" parent="1" name="dict"/>
+    <schema id="12" parent="1" name="django"/>
+    <schema id="13" parent="1" name="eshop"/>
+    <schema id="14" parent="1" name="flaskDB"/>
+    <schema id="15" parent="1" name="users"/>
+    <schema id="16" parent="1" name="webdb"/>
+    <schema id="17" parent="1" name="webDB"/>
+    <schema id="18" parent="1" name="xz"/>
+    <table id="19" parent="2" name="alembic_version"/>
+    <table id="20" parent="2" name="key_map"/>
+    <table id="21" parent="2" name="user"/>
+    <table id="22" parent="2" name="user_chat_information"/>
+    <column id="23" parent="19" name="version_num">
       <Position>1</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="19" parent="14" name="PRIMARY">
+    <key id="24" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version_num</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="15" name="id">
+    <column id="25" parent="20" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="21" parent="15" name="username">
+    <column id="26" parent="20" name="username">
       <Position>2</Position>
       <DataType>varchar(16)|0</DataType>
     </column>
-    <column id="22" parent="15" name="keys">
+    <column id="27" parent="20" name="keys">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="23" parent="15" name="value">
+    <column id="28" parent="20" name="value">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="24" parent="15" name="PRIMARY">
+    <key id="29" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="25" parent="16" name="id">
+    <column id="30" parent="21" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="26" parent="16" name="username">
+    <column id="31" parent="21" name="username">
       <Position>2</Position>
       <DataType>varchar(16)|0</DataType>
     </column>
-    <column id="27" parent="16" name="password">
+    <column id="32" parent="21" name="password">
       <Position>3</Position>
       <DataType>varchar(60)|0</DataType>
     </column>
-    <column id="28" parent="16" name="email">
+    <column id="33" parent="21" name="email">
       <Position>4</Position>
       <DataType>varchar(60)|0</DataType>
     </column>
-    <column id="29" parent="16" name="phonenumber">
+    <column id="34" parent="21" name="phonenumber">
       <Position>5</Position>
       <DataType>varchar(11)|0</DataType>
     </column>
-    <key id="30" parent="16" name="PRIMARY">
+    <key id="35" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="17" name="id">
+    <column id="36" parent="22" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="32" parent="17" name="username">
+    <column id="37" parent="22" name="username">
       <Position>2</Position>
       <DataType>varchar(16)|0</DataType>
     </column>
-    <column id="33" parent="17" name="chat_information">
+    <column id="38" parent="22" name="chat_information">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="34" parent="17" name="recv_information">
+    <column id="39" parent="22" name="recv_information">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="35" parent="17" name="chat_time">
+    <column id="40" parent="22" name="chat_time">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="36" parent="17" name="PRIMARY">
+    <key id="41" parent="22" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

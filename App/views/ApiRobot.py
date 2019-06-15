@@ -69,10 +69,11 @@ def Chat(mode=None):
                 with open(robot_conf.qr_path, "wt"):
                     pass
 
-                t = Thread(target=App.ChatRobot.wx_robot)
+
+                t = Process(target=App.ChatRobot.wx_robot)
                 t.daemon = True
                 t.start()
-                # App.ChatRobot.wx_robot()
+
 
                 sleep(2)  # 创建子进程后等待2秒
                 return jsonify({"status": "wxconnect","username":username}), 201
